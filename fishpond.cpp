@@ -6,16 +6,27 @@ fishpond::fishpond(QWidget *parent)
     , ui(new Ui::fishpond)
 {
     ui->setupUi(this);
-    ui->label->setText(pondId);
+    value =new WasteDischargeValve(this);
+    ui->label_2->setText(pondId);
 }
 fishpond::fishpond(QString flag,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::fishpond),pondId(flag)
 {
     ui->setupUi(this);
-    ui->label->setText(pondId);
+    value =new WasteDischargeValve(this);
+    ui->label_2->setText(pondId);
+    value->setDeviceIcon();
+}
+
+void fishpond::updateWasteDeviceStatus(QString str)
+{
+    value->setCurrentStatus(str);
+    qDebug()<<str<<"update";
 }
 fishpond::~fishpond()
 {
     delete ui;
 }
+
+

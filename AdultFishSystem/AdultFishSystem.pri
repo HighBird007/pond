@@ -1,3 +1,11 @@
-HEADERS +=
+HEADERS += \
+    $$PWD/adultfishsystemwidget.h
 
-SOURCES +=
+SOURCES += \
+    $$PWD/adultfishsystemwidget.cpp
+
+FORMS += \
+    $$PWD/adultfishsystemwidget.ui
+
+RESOURCES += \
+    $$PWD/Adulticon.qrc

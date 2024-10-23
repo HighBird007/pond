@@ -16,15 +16,10 @@ public:
     ~Device();
     //所有设备都必须重写设置icon函数
     virtual void setDeviceIcon()=0;
-    //所有设备都必须重写至少两种错误情况
-    virtual void setWrongString()=0;
-    void initDevice();
 protected:
         Ui::Device *ui;
-    QString normalUse;
-    QString normalUnuse;
-    QString wrongOccurOne;
-    QString wrongOccurTwo;
+    QString normalUse="正常开";
+    QString normalUnuse="正常关";
 };
 
 #endif // DEVICE_H

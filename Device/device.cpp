@@ -13,8 +13,3 @@ Device::~Device()
     delete ui;
 }
 
-void Device::initDevice()
-{
-    setDeviceIcon();
-    setWrongString();
-}

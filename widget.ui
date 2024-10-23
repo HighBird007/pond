@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="goToAdultFishSystem">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>300</y>
+     <x>370</x>
+     <y>380</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -36,12 +36,28 @@
     </rect>
    </property>
   </widget>
+  <widget class="fishpond" name="widget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>391</width>
+     <height>321</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
    <class>WasteDischargeValve</class>
    <extends>QWidget</extends>
-   <header location="global">WasteDischargeValve.h</header>
+   <header>WasteDischargeValve.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>fishpond</class>
+   <extends>QWidget</extends>
+   <header location="global">fishpond.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

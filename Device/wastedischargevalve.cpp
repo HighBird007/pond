@@ -2,18 +2,20 @@
 
 WasteDischargeValve::WasteDischargeValve(QWidget *parent ) : Device(parent)
 {
-    initDevice();
+   // ui->setupUi(this);
+    ui->deviceStatus->setText(normalUse);
+
 }
 
 void WasteDischargeValve::setDeviceIcon()
 {
     ui->deviceIcon->setPixmap(QPixmap(":/new/prefix1/G:/wastedischarge.svg").scaledToHeight(ui->deviceIcon->height()));
+    ui->label->setPixmap(QPixmap(":/new/prefix1/G:/ok.svg").scaledToHeight(ui->label->height()));
 }
 
-void WasteDischargeValve::setWrongString()
+void WasteDischargeValve::setCurrentStatus(QString str)
 {
-    this->normalUse="正常开";
-    this->normalUnuse="正常关";
-    this->wrongOccurOne="开不到位";
-    this->wrongOccurTwo="关不到位";
+    ui->deviceStatus->setText(normalUse);
+    qDebug()<<"waste"<<str;
 }
+
