@@ -1,13 +1,16 @@
 HEADERS += \
-    $$PWD/device.h \
+    $$PWD/devicefather.h \
+    $$PWD/oxygenconepump.h \
     $$PWD/wastedischargevalve.h
 
 SOURCES += \
-    $$PWD/device.cpp \
+    $$PWD/devicefather.cpp \
+    $$PWD/oxygenconepump.cpp \
     $$PWD/wastedischargevalve.cpp
 
 FORMS += \
-    $$PWD/device.ui
+    $$PWD/oxygenconepump.ui \
+    $$PWD/wastedischargevalve.ui
 
 RESOURCES += \
     $$PWD/icon.qrc

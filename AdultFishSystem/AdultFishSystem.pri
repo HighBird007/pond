@@ -1,8 +1,10 @@
 HEADERS += \
-    $$PWD/adultfishsystemwidget.h
+    $$PWD/adultfishsystemwidget.h \
+    $$PWD/fishsystem.h
 
 SOURCES += \
-    $$PWD/adultfishsystemwidget.cpp
+    $$PWD/adultfishsystemwidget.cpp \
+    $$PWD/fishsystem.cpp
 
 FORMS += \
     $$PWD/adultfishsystemwidget.ui

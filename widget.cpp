@@ -16,6 +16,11 @@ Widget::~Widget()
 
 void Widget::goAdultFishSystem()
 {
+
+}
+
+void Widget::on_goToAdultFishSystem_2_clicked()
+{
     auto i =  new AdultFishSystemWidget();
     QVector<QString> pumpErrors{
         "水泵1故障", "水泵2故障",
@@ -23,7 +28,6 @@ void Widget::goAdultFishSystem()
         "排污阀3开不到位", "排污阀3关不到位", "排污阀4开不到位", "排污阀4关不到位"
     };
     QVector<QString> valveErrors{
-
         "排污阀5开不到位", "排污阀5关不到位", "排污阀6开不到位", "排污阀6关不到位",
         "排污阀7开不到位", "排污阀7关不到位", "排污阀8开不到位", "排污阀8关不到位",
         "补水高液位超时", "微滤池高液位超时", "微滤机电源跳闸", "紫外杀菌灯跳闸",
@@ -32,4 +36,7 @@ void Widget::goAdultFishSystem()
     i->initErrorVec(std::move(pumpErrors));
     i->initErrorVec(std::move(valveErrors));
     i->show();
+    controlCenter::getInstance().addFishSystem("e46338809b281d30",i);
+    controlCenter::getInstance().centerStart();
 }
+

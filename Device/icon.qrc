@@ -3,5 +3,7 @@
         <file>G:/wastedischarge.svg</file>
         <file>G:/error.svg</file>
         <file>G:/ok.svg</file>
+        <file>G:/o2error.svg</file>
+        <file>G:/o2ok.svg</file>
     </qresource>
 </RCC>

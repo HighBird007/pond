@@ -2,18 +2,22 @@
 #define WASTEDISCHARGEVALVE_H
 
 #include <QWidget>
-#include "Device/device.h"
-#include "ui_device.h"
-class WasteDischargeValve : public Device
+#include <Device/devicefather.h>
+namespace Ui {
+class WasteDischargeValve;
+}
+
+class WasteDischargeValve : public QWidget,public DeviceFather
 {
     Q_OBJECT
+
 public:
     explicit WasteDischargeValve(QWidget *parent = nullptr);
-    //所有设备都必须重写设置icon函数
-    virtual void setDeviceIcon()override;
-    void setCurrentStatus(QString);
+    ~WasteDischargeValve();
+    void setDeviceIcon()override;
+    void updateDeviceStatus(QString,statusType)override;
 private:
-    Ui::Device *ui;
+    Ui::WasteDischargeValve *ui;
 };
 
 #endif // WASTEDISCHARGEVALVE_H

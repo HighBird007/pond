@@ -16,51 +16,30 @@
   <widget class="QPushButton" name="goToAdultFishSystem">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>380</y>
+     <x>270</x>
+     <y>200</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>test</string>
    </property>
   </widget>
-  <widget class="WasteDischargeValve" name="widget" native="true">
+  <widget class="QPushButton" name="goToAdultFishSystem_2">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>160</y>
-     <width>120</width>
-     <height>80</height>
+     <x>280</x>
+     <y>270</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
-  </widget>
-  <widget class="fishpond" name="widget_2" native="true">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>391</width>
-     <height>321</height>
-    </rect>
+   <property name="text">
+    <string>选择tcp本地连接</string>
    </property>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>WasteDischargeValve</class>
-   <extends>QWidget</extends>
-   <header>WasteDischargeValve.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>fishpond</class>
-   <extends>QWidget</extends>
-   <header location="global">fishpond.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTcpSocket>
+#include <controlcenter.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -18,6 +19,8 @@ public:
     ~Widget();
 private slots:
     void goAdultFishSystem();
+    void on_goToAdultFishSystem_2_clicked();
+
 private:
     Ui::Widget *ui;
     QTcpSocket* socket;

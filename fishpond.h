@@ -14,7 +14,7 @@ class fishpond : public QWidget
 public:
     explicit fishpond(QWidget *parent = nullptr);
     explicit fishpond(QString,QWidget *parent = nullptr);
-    void updateWasteDeviceStatus(QString);
+    void updateWasteDeviceStatus(QString,statusType);
     ~fishpond();
 
 private:
