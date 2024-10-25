@@ -2,12 +2,13 @@
 #include "ui_wastedischargevalve.h"
 
 WasteDischargeValve::WasteDischargeValve(QWidget *parent)
-    : QWidget(parent)
+    : DeviceFather(parent)
     , ui(new Ui::WasteDischargeValve)
 {
     ui->setupUi(this);
     ui->label_2->setText("设备状态未知");
     ui->label_2->setStyleSheet("background-color: red; color: white; font-weight: bold; font-size: 10px;");
+    ui->label_3->setText("未定义编号");
 }
 
 WasteDischargeValve::~WasteDischargeValve()
@@ -32,4 +33,9 @@ void WasteDischargeValve::updateDeviceStatus(QString str, statusType type)
         ui->label_2->setText("设备故障！");
         ui->label_2->setStyleSheet("background-color: red; color: white; font-weight: bold; font-size: 10px;");
     }
+}
+
+void WasteDischargeValve::updateDeviceInfo()
+{
+    ui->label_3->setText(QString("waste %1").arg(deviceId));
 }

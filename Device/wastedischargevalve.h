@@ -1,15 +1,13 @@
 #ifndef WASTEDISCHARGEVALVE_H
 #define WASTEDISCHARGEVALVE_H
-
-#include <QWidget>
 #include <Device/devicefather.h>
 namespace Ui {
 class WasteDischargeValve;
 }
 
-class WasteDischargeValve : public QWidget,public DeviceFather
+class WasteDischargeValve : public DeviceFather
 {
-    Q_OBJECT
+    // Q_OBJECT
 
 public:
     explicit WasteDischargeValve(QWidget *parent = nullptr);
@@ -18,6 +16,8 @@ public:
     void updateDeviceStatus(QString,statusType)override;
 private:
     Ui::WasteDischargeValve *ui;
+protected:
+        virtual void updateDeviceInfo()override;
 };
 
 #endif // WASTEDISCHARGEVALVE_H

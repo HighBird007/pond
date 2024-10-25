@@ -2,14 +2,31 @@
 #define DEVICEFATHER_H
 
 #include <QObject>
+#include <QMouseEvent>
+#include <QMenu>
+#include <QAction>
+#include <QInputDialog>
+#include <QWidget>
 enum statusType{ok,error};
-class DeviceFather
+class DeviceFather:public QWidget
 {
-    //Q_OBJECT
+    Q_OBJECT
 public:
-    DeviceFather();
+     DeviceFather();
+     DeviceFather(QWidget *parent = nullptr);  // 添加父对象构造
     virtual void updateDeviceStatus(QString,statusType) = 0;
-    virtual     void setDeviceIcon()=0;
+    virtual void setDeviceIcon()=0;
+protected:
+    int deviceId;
+    QMenu* menu;
+protected:
+    //鼠标右击弹出输入框触发
+    virtual void setDeviceId();
+    //更新设备显示的设备id文本
+    virtual void updateDeviceInfo()=0;
+protected:
+    void mousePressEvent(QMouseEvent* event)override;
+
 };
 
 #endif // DEVICEFATHER_H

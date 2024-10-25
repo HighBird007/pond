@@ -1,13 +1,16 @@
 #ifndef OXYGENCONEPUMP_H
 #define OXYGENCONEPUMP_H
 
-#include <QWidget>
+
 #include <Device/devicefather.h>
+#include <QMouseEvent>
+#include <QMenu>
+#include <QAction>
 namespace Ui {
 class OxygenConePump;
 }
 
-class OxygenConePump : public QWidget,public DeviceFather
+class OxygenConePump : public DeviceFather
 {
     Q_OBJECT
 
@@ -16,6 +19,8 @@ public:
     ~OxygenConePump();
     void updateDeviceStatus(QString,statusType)override;
     void setDeviceIcon()override;
+protected:
+    void updateDeviceInfo()override;
 private:
     Ui::OxygenConePump *ui;
     QString oxyId;
