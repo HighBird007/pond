@@ -1,15 +1,16 @@
 #include "oxygenconepump.h"
 #include "ui_oxygenconepump.h"
 
-// oxygenconepump.cpp
-OxygenConePump::OxygenConePump(QString id, QWidget *parent)
+OxygenConePump::OxygenConePump(int id, QWidget *parent)
     : DeviceFather(parent)  // 调用 DeviceFather 的构造函数，而不是 QWidget
     , ui(new Ui::OxygenConePump), oxyId(id)
 {
     ui->setupUi(this);
-    ui->label->setText("未设置编号");
-    ui->DeviceStatus->setText("设备状态未知");
+    ui->DeviceIcon->setPixmap(QPixmap(":/new/prefix1/G:/o2error.svg").scaledToHeight(ui->DeviceIcon->height()));
+    ui->label->setText(QString("氧气泵%1").arg(id));
+    ui->DeviceStatus->setText("设备未知");
     ui->DeviceStatus->setStyleSheet("background-color: red; color: white; font-weight: bold; font-size: 10px;");
+    ui->DeviceIcon->setPixmap(QPixmap(":/new/prefix1/G:/o2error.svg").scaledToHeight(ui->DeviceIcon->height()));
 }
 
 OxygenConePump::~OxygenConePump()
@@ -31,11 +32,6 @@ void OxygenConePump::updateDeviceStatus(QString str, statusType type)
         ui->DeviceStatus->setStyleSheet("background-color: red; color: white; font-weight: bold; font-size: 10px;");
         ui->DeviceIcon->setPixmap(QPixmap(":/new/prefix1/G:/o2error.svg").scaledToHeight(ui->DeviceIcon->height()));
     }
-}
-
-void OxygenConePump::setDeviceIcon()
-{
-    ui->DeviceIcon->setPixmap(QPixmap(":/new/prefix1/G:/o2ok.svg").scaledToHeight(ui->DeviceIcon->height()));
 }
 
 void OxygenConePump::updateDeviceInfo()

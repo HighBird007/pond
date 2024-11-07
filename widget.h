@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QTcpSocket>
 #include <controlcenter.h>
+#include <initcenter.h>
+#include <initcenterlabel.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;

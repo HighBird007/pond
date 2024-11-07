@@ -1,6 +1,6 @@
+
 #ifndef DEVICEFATHER_H
 #define DEVICEFATHER_H
-
 #include <QObject>
 #include <QMouseEvent>
 #include <QMenu>
@@ -15,7 +15,6 @@ public:
      DeviceFather();
      DeviceFather(QWidget *parent = nullptr);  // 添加父对象构造
     virtual void updateDeviceStatus(QString,statusType) = 0;
-    virtual void setDeviceIcon()=0;
 protected:
     int deviceId;
     QMenu* menu;
@@ -28,5 +27,4 @@ protected:
     void mousePressEvent(QMouseEvent* event)override;
 
 };
-
 #endif // DEVICEFATHER_H

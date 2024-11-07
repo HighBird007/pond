@@ -7,14 +7,13 @@ fishpond::fishpond(QWidget *parent)
 {
     ui->setupUi(this);
 }
-fishpond::fishpond(QString flag,QWidget *parent)
+fishpond::fishpond(int flag,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::fishpond),pondId(flag)
 {
     ui->setupUi(this);
-    value =new WasteDischargeValve();
-    ui->label_2->setText(flag);
-    value->setDeviceIcon();
+    value =new WasteDischargeValve(flag,this);
+    ui->label_2->setText(QString("pond %1").arg(flag));
     ui->gridLayout->addWidget(value,2,0, Qt::AlignTop | Qt::AlignLeft);
     value->show();
 }

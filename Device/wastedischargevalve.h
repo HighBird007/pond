@@ -10,14 +10,13 @@ class WasteDischargeValve : public DeviceFather
     // Q_OBJECT
 
 public:
-    explicit WasteDischargeValve(QWidget *parent = nullptr);
+    explicit WasteDischargeValve(int,QWidget *parent = nullptr);
     ~WasteDischargeValve();
-    void setDeviceIcon()override;
     void updateDeviceStatus(QString,statusType)override;
 private:
     Ui::WasteDischargeValve *ui;
 protected:
-        virtual void updateDeviceInfo()override;
+    virtual void updateDeviceInfo()override;
 };
 
 #endif // WASTEDISCHARGEVALVE_H

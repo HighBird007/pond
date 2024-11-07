@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network mqtt
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,16 +14,22 @@ include($$PWD/Device/Device.pri)
 SOURCES += \
     controlcenter.cpp \
     fishpond.cpp \
+    initcenter.cpp \
+    initcenterlabel.cpp \
     main.cpp \
     widget.cpp
 
 HEADERS += \
     controlcenter.h \
     fishpond.h \
+    initcenter.h \
+    initcenterlabel.h \
     widget.h
 
 FORMS += \
     fishpond.ui \
+    initcenter.ui \
+    initcenterlabel.ui \
     widget.ui
 
 # Default rules for deployment.

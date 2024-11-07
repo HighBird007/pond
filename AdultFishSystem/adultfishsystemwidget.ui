@@ -15,26 +15,100 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,0,5">
+    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1,1,4">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string/>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3,1,1,1,1,1">
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>150</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="Adulticon.qrc">:/new/prefix1/G:/reservoir.svg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignTop">
+        <widget class="WaterSupplyPump" name="wsp" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>128</width>
+           <height>128</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>128</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Microfilter" name="widget" native="true"/>
+       </item>
+       <item>
+        <widget class="WaterPump" name="widget_5" native="true"/>
+       </item>
+       <item>
+        <widget class="WaterPump" name="widget_4" native="true"/>
+       </item>
+       <item>
+        <widget class="UVLamp" name="ul" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>128</width>
+           <height>128</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>2</number>
        </property>
-      </widget>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetFixedSize</enum>
+       </property>
+      </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="5,1,5">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="3,3">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
@@ -55,13 +129,6 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2"/>
        </item>
       </layout>
@@ -70,6 +137,34 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>Microfilter</class>
+   <extends>QWidget</extends>
+   <header>microfilter.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WaterSupplyPump</class>
+   <extends>QWidget</extends>
+   <header>watersupplypump.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>UVLamp</class>
+   <extends>QWidget</extends>
+   <header>uvlamp.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WaterPump</class>
+   <extends>QWidget</extends>
+   <header>waterpump.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Adulticon.qrc"/>
+ </resources>
  <connections/>
 </ui>

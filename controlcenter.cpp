@@ -24,9 +24,19 @@ controlCenter::controlCenter() {
 
 void controlCenter::receiveJson()
 {
-    QJsonDocument doc = QJsonDocument::fromJson(socket->readAll());
-    qDebug()<<doc;
-    QJsonObject o =doc.object();
-    qDebug()<<o["id"].toString()<<o["k1"].toInt();
-    umap[o["id"].toString()]->updateDevicesStatus(o["k1"].toInt(),0);
+   // QJsonDocument doc = QJsonDocument::fromJson(socket->readAll());
+    QByteArray data=socket->readAll();
+   data.replace("\\", "");
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    qDebug()<<data;
+    if (!doc.isNull()) {
+        qDebug() << doc;
+    } else {
+        qDebug() << "JSON解析失败";
+    }
+    qDebug()<<"--------";
+   QJsonObject o =doc.object();
+   QJsonArray arr= o["AdDeviceStatus"].toArray();
+   umap[o["id"].toString()]->updateDevicesStatus(arr[0].toInt(),0);
+    umap[o["id"].toString()]->updateDevicesStatus(arr[1].toInt(),1);
 }

@@ -13,13 +13,13 @@ class fishpond : public QWidget
 
 public:
     explicit fishpond(QWidget *parent = nullptr);
-    explicit fishpond(QString,QWidget *parent = nullptr);
+    explicit fishpond(int,QWidget *parent = nullptr);
     void updateWasteDeviceStatus(QString,statusType);
     ~fishpond();
 
 private:
     Ui::fishpond *ui;
-    QString pondId="unknown";
+    int pondId=-1;
     WasteDischargeValve *value;
 
 };

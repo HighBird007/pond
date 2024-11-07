@@ -1,9 +1,16 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>G:/wastedischarge.svg</file>
+        <file>G:/wastewater.svg</file>
         <file>G:/error.svg</file>
         <file>G:/ok.svg</file>
         <file>G:/o2error.svg</file>
         <file>G:/o2ok.svg</file>
+        <file>G:/filtererror.svg</file>
+        <file>G:/filterok.svg</file>
+        <file>G:/WaterSupplyPumpClose.svg</file>
+        <file>G:/WaterSupplyPumpOpen.svg</file>
+        <file>G:/UVLampClose.svg</file>
+        <file>G:/UVLampOpen.svg</file>
+        <file>G:/WaterPump.svg</file>
     </qresource>
 </RCC>
