@@ -54,152 +54,43 @@
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="deviceLay" stretch="3,1,1,1,1,1">
-       <item alignment="Qt::AlignHCenter">
+      <layout class="QVBoxLayout" name="deviceLay1" stretch="0">
+       <item alignment="Qt::AlignLeft">
         <widget class="QLabel" name="label">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>150</width>
-           <height>150</height>
-          </size>
          </property>
          <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="Adulticon.qrc">:/new/prefix1/G:/reservoir.svg</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="WaterSupplyPump" name="wsp" native="true">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>128</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>120</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="Microfilter" name="widget" native="true">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="WaterPump" name="widget_5" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="WaterPump" name="widget_4" native="true">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>120</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="UVLamp" name="ul" native="true">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>128</width>
-           <height>69</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>999</width>
-           <height>120</height>
-          </size>
+          <string>设备1</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="deviceLay2">
        <property name="spacing">
         <number>2</number>
        </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetFixedSize</enum>
        </property>
+       <item alignment="Qt::AlignLeft">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>设备2</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout" stretch="3,3">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="pondLay1">
          <property name="spacing">
           <number>5</number>
          </property>
@@ -215,10 +106,25 @@
          <property name="bottomMargin">
           <number>5</number>
          </property>
+         <item alignment="Qt::AlignLeft">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>池塘一</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+        <layout class="QHBoxLayout" name="pondLay2">
+         <item alignment="Qt::AlignLeft">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>池塘二</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -226,34 +132,7 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Microfilter</class>
-   <extends>QWidget</extends>
-   <header>microfilter.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>WaterSupplyPump</class>
-   <extends>QWidget</extends>
-   <header>watersupplypump.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>UVLamp</class>
-   <extends>QWidget</extends>
-   <header>uvlamp.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>WaterPump</class>
-   <extends>QWidget</extends>
-   <header>waterpump.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
-  <include location="Adulticon.qrc"/>
   <include location="../Device/icon.qrc"/>
  </resources>
  <connections/>

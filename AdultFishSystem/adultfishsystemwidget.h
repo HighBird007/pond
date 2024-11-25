@@ -12,6 +12,9 @@
 #include <QFile>
 #include <microfilter.h>
 #include <oxygenconepump.h>
+#include <uvlamp.h>
+#include <waterpump.h>
+#include <fishpond.h>
 namespace Ui {
 class AdultFishSystemWidget;
 }
@@ -45,7 +48,8 @@ public:
 
     //设置map
     void setMap(QJsonObject obj);
-    void setMap();
+    void setDeviceLayout();
+
 protected:
     void updateWasteDeviceStatus(int num,int order);
     void updateOxygenDeviceStatus(int num);
@@ -56,6 +60,13 @@ private:
     Ui::AdultFishSystemWidget *ui;
     DataShow *showModel;
     initCenter *ic;
+    QVector<OxygenConePump*> oxyVec;
+    QVector<UVLamp*> uvVec;
+    QVector<Microfilter*> mfVec;
+    QVector<WaterPump*> wpVec;
+    QVector<WaterSupplyPump*> wspVec;
+    QVector<fishpond*> pondVec;
+    //QVector<*> Vec;
 };
 
 #endif // ADULTFISHSYSTEMWIDGET_H

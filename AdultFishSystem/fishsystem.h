@@ -9,9 +9,6 @@ class FishSystem
 public:
     FishSystem();
     virtual  void updateDevicesStatus(int,int)=0;
-protected:
-    QVector<fishpond*> pondVec;
-    QVector<OxygenConePump*> oxyVec;
 };
 
 #endif // FISHSYSTEM_H

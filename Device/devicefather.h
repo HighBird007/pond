@@ -8,7 +8,7 @@
 #include <QInputDialog>
 #include <QWidget>
 enum statusType{ok,error};
-enum DeviceType{wspump,mfilter,wpump,wdvalve,ulamp,opump};
+enum DeviceType{wspump,mfilter,wpump,wdvalve,ulamp,opump,fpond};
 class DeviceFather:public QWidget
 {
     Q_OBJECT

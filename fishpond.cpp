@@ -1,12 +1,6 @@
 #include "fishpond.h"
 #include "ui_fishpond.h"
 
-fishpond::fishpond(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::fishpond)
-{
-    ui->setupUi(this);
-}
 fishpond::fishpond(int flag,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::fishpond),pondId(flag)

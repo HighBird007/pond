@@ -45,6 +45,7 @@ void initCenterLabel::initCombox()
     ui->comboBox->addItem("微滤机",DeviceType::mfilter);
     ui->comboBox->addItem("紫外灯",DeviceType::ulamp);
     ui->comboBox->addItem("排污阀",DeviceType::wdvalve);
+    ui->comboBox->addItem("池塘",DeviceType::fpond);
 }
 
 QString initCenterLabel::getJsonName()
