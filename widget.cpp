@@ -1,6 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include "AdultFishSystem/adultfishsystemwidget.h">
+#include "AdultFishSystem/adultfishsystemwidget.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)

@@ -17,11 +17,15 @@ initCenter::~initCenter()
     delete ui;
 }
 
+const map<QString, std::pair<DeviceType, int> > &initCenter::getUserSet()
+{
+    return data;
+}
+
 void initCenter::addDevice()
 {
     static int index = 0;
-    initCenterLabel *a=new initCenterLabel(this);
-    a->setIndex(index);
+    initCenterLabel *a=new initCenterLabel(index,this);
     connect(a,&initCenterLabel::suicide,this,&initCenter::delDevice);
     umap[index]=a;
     l->addWidget(a,1);
@@ -35,42 +39,18 @@ void initCenter::delDevice(int index)
     }
 }
 
+void initCenter::closeEvent(QCloseEvent *event)
+{
+    for(auto &it : umap){
+        initCenterLabel *p = it.second;
+        data[p->getJsonName()]=std::make_pair(p->getDeviceType(),p->getNum());
+    }
+    emit setSure();
+    event->accept();
+}
+
 void initCenter::on_delDevice_clicked()
 {
-    QVector<OxygenConePump *> vec;
 
-    QVector<fishpond *> pondVec;
-    for(auto it : umap) {
-        switch (it.second->getDeviceType()) {
-        case 0:  // 补水泵
-               // vec.push_back();
-            break;
-        case 1:  // 水泵
-               // vec.push_back(it);
-            break;
-        case 2:  // 氧锥泵
-            vec.push_back(new OxygenConePump(it.second->getIndex()));
-            break;
-        case 3://池塘
-            pondVec.push_back(new fishpond(it.second->getIndex()));
-            break;
-        case 4:  // 微滤机
-            //    vec.push_back(it);
-            break;
-        case 5:  // 紫外灯
-          //  if (dynamic_cast<UVLamp*>(it)) {
-              //  vec.push_back(it);
-           // }
-            break;
-        default:
-            break;
-        }
-    }
-
-    // 输出调试信息，查看找到的设备数量
-    qDebug() << "Found" << vec.size() << "devices of selected type.";
-    AdultFishSystemWidget *afsw=new AdultFishSystemWidget();
-
-    afsw->show();
 }
 

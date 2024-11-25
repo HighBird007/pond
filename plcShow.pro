@@ -13,6 +13,7 @@ include($$PWD/Device/Device.pri)
 
 SOURCES += \
     controlcenter.cpp \
+    datashow.cpp \
     fishpond.cpp \
     initcenter.cpp \
     initcenterlabel.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     controlcenter.h \
+    datashow.h \
     fishpond.h \
     initcenter.h \
     initcenterlabel.h \

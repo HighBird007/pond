@@ -3,7 +3,7 @@
 #include <../fishpond.h>
 #include <Device/oxygenconepump.h>
 #include <Device/watersupplypump.h>
-enum DeviceType{wspump,mfilter,wpump,wdvalve,ulamp,opump};
+#include <Device/microfilter.h>
 class FishSystem
 {
 public:

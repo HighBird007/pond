@@ -2,11 +2,16 @@
 #define ADULTFISHSYSTEMWIDGET_H
 
 #include <QWidget>
-#include <../fishpond.h>
 #include <fishsystem.h>
-#include <Device/oxygenconepump.h>
-#include <Device/microfilter.h>
-#include <Device/watersupplypump.h>
+#include <../datashow.h>
+#include <QRandomGenerator>
+#include <../initcenter.h>
+#include <../initcenterlabel.h>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QFile>
+#include <microfilter.h>
+#include <oxygenconepump.h>
 namespace Ui {
 class AdultFishSystemWidget;
 }
@@ -33,16 +38,24 @@ public:
     void UpdateUvLampHasError(bool b);
     //氧泵
     void UpdateO2PumpAreUsing(const QVector<bool> &vec);
-    void UpdateO2PumpHaveError(QVector<bool> vec);
+    void UpdateO2PumpHaveError(const QVector<bool> &vec);
+    //更新设备状态
+    void updateDeviceUsing(DeviceType,bool);
+    void updateDeviceUsing(DeviceType t, const QVector<bool> &vec);
 
-    void updateDeviceIsUsing(DeviceType,bool);
-    void updateDeviceIsUsing(DeviceType,QVector<bool> vec);
-    void updateDeviceIsUsing(DeviceType t, const QVector<bool> &vec);
+    //设置map
+    void setMap(QJsonObject obj);
+    void setMap();
 protected:
     void updateWasteDeviceStatus(int num,int order);
     void updateOxygenDeviceStatus(int num);
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::AdultFishSystemWidget *ui;
+    DataShow *showModel;
+    initCenter *ic;
 };
 
 #endif // ADULTFISHSYSTEMWIDGET_H

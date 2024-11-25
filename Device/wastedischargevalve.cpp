@@ -6,7 +6,7 @@ WasteDischargeValve::WasteDischargeValve(int id,QWidget *parent)
     , ui(new Ui::WasteDischargeValve)
 {
     ui->setupUi(this);
-    ui->label_2->setText("设备状态未知");
+    ui->label_2->setText("设备未知");
     ui->label_2->setStyleSheet("background-color: red; color: white; font-weight: bold; font-size: 10px;");
     ui->label_3->setText(QString("id %1").arg(id));
     ui->label->setPixmap(QPixmap(":/new/prefix1/G:/wastewater.svg").scaledToHeight(ui->label->height()));

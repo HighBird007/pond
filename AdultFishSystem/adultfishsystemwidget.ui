@@ -15,20 +15,46 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1,1,4">
+    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1,1,4">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item alignment="Qt::AlignRight|Qt::AlignTop">
+        <widget class="QTableView" name="tableView">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>120</width>
+           <height>120</height>
+          </size>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>PushButton</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../Device/icon.qrc">
+           <normaloff>:/new/prefix1/G:/WaterPump.svg</normaloff>:/new/prefix1/G:/WaterPump.svg</iconset>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3,1,1,1,1,1">
+      <layout class="QVBoxLayout" name="deviceLay" stretch="3,1,1,1,1,1">
        <item alignment="Qt::AlignHCenter">
         <widget class="QLabel" name="label">
          <property name="sizePolicy">
@@ -54,10 +80,10 @@
          </property>
         </widget>
        </item>
-       <item alignment="Qt::AlignTop">
+       <item>
         <widget class="WaterSupplyPump" name="wsp" native="true">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -65,32 +91,95 @@
          <property name="minimumSize">
           <size>
            <width>128</width>
-           <height>128</height>
+           <height>70</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>200</width>
-           <height>128</height>
+           <height>120</height>
           </size>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="Microfilter" name="widget" native="true"/>
+        <widget class="Microfilter" name="widget" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="WaterPump" name="widget_5" native="true"/>
+        <widget class="WaterPump" name="widget_5" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="WaterPump" name="widget_4" native="true"/>
+        <widget class="WaterPump" name="widget_4" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="UVLamp" name="ul" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>128</width>
-           <height>128</height>
+           <height>69</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>999</width>
+           <height>120</height>
           </size>
          </property>
         </widget>
@@ -165,6 +254,7 @@
  </customwidgets>
  <resources>
   <include location="Adulticon.qrc"/>
+  <include location="../Device/icon.qrc"/>
  </resources>
  <connections/>
 </ui>

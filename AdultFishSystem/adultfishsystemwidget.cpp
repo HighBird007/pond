@@ -22,6 +22,11 @@ AdultFishSystemWidget::AdultFishSystemWidget(QWidget *parent)
         oxyVec.push_back(it);
         ui->verticalLayout_2->addWidget(it, 1);  // 添加到布局中，并设置拉伸因子
     }
+    showModel = new DataShow(this);
+    ui->tableView->setModel(showModel);
+    ic=new initCenter();
+    //connect(ic,&initCenter::setSure,this,&AdultFishSystemWidget::setMap);
+    this->setWindowTitle("成鱼系统");
 }
 
 AdultFishSystemWidget::~AdultFishSystemWidget()
@@ -44,7 +49,7 @@ void AdultFishSystemWidget::updateDevicesStatus(int num,int order)
 void AdultFishSystemWidget::UpdateWaterSupplyPumpHasError(int b)
 {
     if(b&(1<<10))
-        ui->wsp->updateDeviceStatus(QString("补水高液位超时"),statusType::error);
+    ui->wsp->updateDeviceStatus(QString("补水高液位超时"),statusType::error);
 }
 //更新微滤机 微滤池异常状态
 void AdultFishSystemWidget::UpdateMicroFilterHasError(int num)
@@ -61,7 +66,6 @@ void AdultFishSystemWidget::UpdateMicroFilterHasError(int num)
     if(num&(1<<15)){
     ui->widget->updateDeviceStatus(QString("微滤池低液位长时间不消失报警"),statusType::error);
     }
-
 }
 //微滤机是否使用
 void AdultFishSystemWidget::UpdateMicroFilterIsUsing(bool b)
@@ -78,7 +82,7 @@ void AdultFishSystemWidget::UpdateUvLampHasError(bool b)
 {
     if(b)ui->ul->updateDeviceStatus("故障",statusType::error);
 }
-
+//氧泵
 void AdultFishSystemWidget::UpdateO2PumpAreUsing(const QVector<bool> &vec)
 {
     for(int i = 0; i<oxyVec.size();i++){
@@ -86,13 +90,16 @@ void AdultFishSystemWidget::UpdateO2PumpAreUsing(const QVector<bool> &vec)
     }
 }
 
-void AdultFishSystemWidget::UpdateO2PumpHaveError(QVector<bool> vec)
+void AdultFishSystemWidget::UpdateO2PumpHaveError(const QVector<bool> &vec)
 {
-
+    for(int i = 0; i<oxyVec.size();i++){
+        if(!vec[i])
+        oxyVec[i]->updateDeviceStatus("故障",statusType::error);
+    }
 }
 
 
-void AdultFishSystemWidget::updateDeviceIsUsing(DeviceType type, bool b)
+void AdultFishSystemWidget::updateDeviceUsing(DeviceType type, bool b)
 {
     switch(type){
     case DeviceType::wspump:
@@ -109,7 +116,7 @@ void AdultFishSystemWidget::updateDeviceIsUsing(DeviceType type, bool b)
     }
 }
 
-void AdultFishSystemWidget::updateDeviceIsUsing(DeviceType t,const QVector<bool> &vec)
+void AdultFishSystemWidget::updateDeviceUsing(DeviceType t,const QVector<bool> &vec)
 {
     switch(t){
     case DeviceType::opump:
@@ -120,6 +127,59 @@ void AdultFishSystemWidget::updateDeviceIsUsing(DeviceType t,const QVector<bool>
         break;
     default:
         break;
+    }
+}
+
+void AdultFishSystemWidget::setMap(QJsonObject obj)
+{
+   const map<QString, std::pair<DeviceType, int> >& s =  ic->getUserSet();
+    for(const auto &it : s){
+        //设备数量
+        int deviceNum = it.second.second;
+        //设备类型
+        DeviceType t = it.second.first;
+        if(deviceNum==1){
+           if(obj.contains(it.first)){
+                updateDeviceUsing(t,obj[it.first].toBool());
+           }
+           else
+           //如果一个设备有多个
+           {
+               QJsonArray jsonArray = obj[it.first].toArray(); // 获取 JSON 数组
+               QVector<bool> boolVector;
+               for (const QJsonValue &value : jsonArray) {
+                   // 假设 JSON 数组中的每个元素是布尔值
+                   boolVector.append(value.toBool()); // 转换为 bool 后添加到 QVector
+               }
+             updateDeviceUsing(t,boolVector);
+           }
+       }
+    }
+}
+
+void AdultFishSystemWidget::setMap()
+{
+    const map<QString, std::pair<DeviceType, int> >& s =  ic->getUserSet();
+    for(const auto &it : s){
+        //设备数量
+        int deviceNum = it.second.second;
+        //设备类型
+        DeviceType t = it.second.first;
+
+        switch(t){
+        case DeviceType::wspump:
+            WaterSupplyPump *d = new WaterSupplyPump(this);
+            ui->deviceLay->addWidget(d,1);
+            break;
+        case DeviceType::mfilter :
+            Microfilter *m = new Microfilter(this);
+            ui->deviceLay->addWidget(m,1);
+            break;
+        case DeviceType::ulamp:
+            UpdateUvLampIsUsing(b);
+            break;
+
+        }
     }
 }
 //水泵
@@ -171,4 +231,14 @@ void AdultFishSystemWidget::updateOxygenDeviceStatus(int num)
     }
 }
 
+
+
+void AdultFishSystemWidget::on_pushButton_2_clicked()
+{
+    double t = QRandomGenerator64::global()->generateDouble()*50;
+    double o = QRandomGenerator64::global()->generateDouble()*100;
+    double e=QRandomGenerator64::global()->generateDouble()*20000;
+    showModel->UpdateData(t,o,e);
+    ic->show();
+}
 

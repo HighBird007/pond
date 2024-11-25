@@ -7,8 +7,7 @@ WaterSupplyPump::WaterSupplyPump(QWidget *parent)
 {
     ui->setupUi(this);
     ui->label->setPixmap(QPixmap(":/new/prefix1/G:/WaterSupplyPumpOpen.svg").scaledToHeight(ui->label->height()));
-    ui->label_2->setText("补水泵");
-    ui->label_3->setText("状态未知");
+    updateDeviceStatus("未知", statusType::error);
 }
 
 WaterSupplyPump::~WaterSupplyPump()

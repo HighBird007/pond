@@ -6,24 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>378</width>
-    <height>190</height>
+    <width>221</width>
+    <height>80</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-    border: 1px solid black; /* 设置边框为1像素宽的黑色 */
-}
-/* 为顶层主容器设置黑色边框 */
-#MainWidget {
-    border: 2px solid black; /* 设置边框为2像素黑色线 */
-    border-radius: 5px; /* 可选：增加圆角效果 */
-    padding: 5px; /* 可选：控制边框和内部内容之间的间距 */
-}
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -43,7 +34,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>TextLabel</string>
+          <string>补水阀</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

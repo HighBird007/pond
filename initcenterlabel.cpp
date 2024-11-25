@@ -1,18 +1,12 @@
 #include "initcenterlabel.h"
 #include "ui_initcenterlabel.h"
 
-initCenterLabel::initCenterLabel(QWidget *parent)
+initCenterLabel::initCenterLabel(int x,QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::initCenterLabel)
+    , ui(new Ui::initCenterLabel),index(x)
 {
     ui->setupUi(this);
-    ui->comboBox->addItem("补水泵",0);
-    ui->comboBox->addItem("水泵",1);
-    ui->comboBox->addItem("氧锥泵",2);
-    ui->comboBox->addItem("池塘",3);
-    ui->comboBox->addItem("微滤机",4);
-    ui->comboBox->addItem("紫外灯",5);
-    ui->comboBox->addItem("鱼池",6);
+    initCombox();
     connect(ui->comboBox,&QComboBox::currentIndexChanged,this,&initCenterLabel::deviceUse);
     QAction *a=new QAction("删除",this);
     menu.addAction(a);
@@ -20,7 +14,12 @@ initCenterLabel::initCenterLabel(QWidget *parent)
         emit suicide(index);
         this->deleteLater();
     });
-
+    connect(ui->lineEdit,&QLineEdit::editingFinished,this,[this](){
+        jname=ui->lineEdit->text();
+    });
+    connect(ui->spinBox,&QSpinBox::valueChanged,this,[=](int n){
+        setNum(n);
+    });
 }
 
 initCenterLabel::~initCenterLabel()
@@ -28,7 +27,7 @@ initCenterLabel::~initCenterLabel()
     delete ui;
 }
 
-int initCenterLabel::getDeviceType()
+DeviceType initCenterLabel::getDeviceType()
 {
     return type;
 }
@@ -38,16 +37,25 @@ int initCenterLabel::getIndex()
     return index;
 }
 
-void initCenterLabel::setIndex(int i)
+void initCenterLabel::initCombox()
 {
-    index = i;
+    ui->comboBox->addItem("补水泵",DeviceType::wspump);
+    ui->comboBox->addItem("水泵",DeviceType::wpump);
+    ui->comboBox->addItem("氧锥泵",DeviceType::opump);
+    ui->comboBox->addItem("微滤机",DeviceType::mfilter);
+    ui->comboBox->addItem("紫外灯",DeviceType::ulamp);
+    ui->comboBox->addItem("排污阀",DeviceType::wdvalve);
+}
+
+QString initCenterLabel::getJsonName()
+{
+    return jname;
 }
 
 void initCenterLabel::deviceUse(int index)
 {
     Q_UNUSED(index);
-    qDebug()<<ui->comboBox->currentData();
-    type = ui->comboBox->currentData().toInt();
+    type = static_cast<DeviceType>(ui->comboBox->currentData().toInt());
 }
 
 void initCenterLabel::mousePressEvent(QMouseEvent *e)
@@ -56,4 +64,14 @@ void initCenterLabel::mousePressEvent(QMouseEvent *e)
         QPoint p = this->mapToGlobal(e->pos());
         menu.exec(p);
     }
+}
+
+int initCenterLabel::getNum() const
+{
+    return num;
+}
+
+void initCenterLabel::setNum(int newNum)
+{
+    num = newNum;
 }

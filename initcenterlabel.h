@@ -13,13 +13,16 @@ class initCenterLabel;
 class initCenterLabel : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit initCenterLabel(QWidget *parent = nullptr);
+    explicit initCenterLabel(int,QWidget *parent = nullptr);
     ~initCenterLabel();
-    int getDeviceType();
+    DeviceType getDeviceType();
     int getIndex();
-    void setIndex(int i);
+    void initCombox();
+    QString getJsonName();
+    int getNum() const;
+    void setNum(int newNum);
+
 private:
     void deviceUse(int index);
 protected:
@@ -28,9 +31,11 @@ signals:
     void suicide(int);
 private:
     Ui::initCenterLabel *ui;
-    int type=-1;
-    int index=0;
+    DeviceType type = wspump;
+    int index;
     QMenu menu;
+    QString jname;
+    int num=1;
 };
 
 #endif // INITCENTERLABEL_H
