@@ -18,6 +18,7 @@ SOURCES += \
     initcenter.cpp \
     initcenterlabel.cpp \
     main.cpp \
+    showuserset.cpp \
     widget.cpp
 
 HEADERS += \
@@ -26,12 +27,14 @@ HEADERS += \
     fishpond.h \
     initcenter.h \
     initcenterlabel.h \
+    showuserset.h \
     widget.h
 
 FORMS += \
     fishpond.ui \
     initcenter.ui \
     initcenterlabel.ui \
+    showuserset.ui \
     widget.ui
 
 # Default rules for deployment.

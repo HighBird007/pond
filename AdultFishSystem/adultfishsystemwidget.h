@@ -24,7 +24,14 @@ class AdultFishSystemWidget : public QWidget,public FishSystem
     Q_OBJECT
 
 public:
+    //养鱼界面分为两种构造方法 一个是用户新构造 无任何参数
     explicit AdultFishSystemWidget(QWidget *parent = nullptr);
+    //一种为加载用户先前配置好的json文件
+    explicit AdultFishSystemWidget(QString fileName , QWidget *parent = nullptr);
+
+    template<typename DT>
+    void updateVecAndShow(QVector<DT*> & vec,int deviceNum,QLayout * l);
+
     ~AdultFishSystemWidget();
     void updateDevicesStatus(int,int);
     //补水泵
@@ -48,6 +55,7 @@ public:
 
     //设置map
     void setMap(QJsonObject obj);
+    //根据用户在初始化中心的设置 进行页面的布局创建
     void setDeviceLayout();
 
 protected:

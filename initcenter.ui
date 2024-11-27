@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="addDevice">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>20</y>
+     <x>10</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -52,17 +52,17 @@
     <string>add</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="delDevice">
+  <widget class="QPushButton" name="saveSet">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>20</y>
+     <x>90</x>
+     <y>50</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>delete</string>
+    <string>save</string>
    </property>
   </widget>
  </widget>

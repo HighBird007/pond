@@ -6,6 +6,13 @@
 #include <controlcenter.h>
 #include <initcenter.h>
 #include <initcenterlabel.h>
+#include <QVBoxLayout>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QList>
+#include <showuserset.h>
+#include "AdultFishSystem/adultfishsystemwidget.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -19,6 +26,9 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+private:
+    //罗列出用户已经保存的渔场json配置文件
+    void initFileShow();
 private slots:
     void goAdultFishSystem();
     void on_goToAdultFishSystem_2_clicked();

@@ -13,6 +13,20 @@ AdultFishSystemWidget::AdultFishSystemWidget(QWidget *parent)
     this->setWindowTitle("成鱼系统");
 }
 
+AdultFishSystemWidget::AdultFishSystemWidget(QString fileName, QWidget *parent)    : QWidget(parent)
+    , ui(new Ui::AdultFishSystemWidget)
+{
+    ui->setupUi(this);
+
+    showModel = new DataShow(this);
+    ui->tableView->setModel(showModel);
+    ic=new initCenter();
+    connect(ic,&initCenter::setSure,this,&AdultFishSystemWidget::setDeviceLayout);
+    this->setWindowTitle("成鱼系统");
+
+    ic->jsonToMap(fileName);
+}
+
 AdultFishSystemWidget::~AdultFishSystemWidget()
 {
     delete ui;
@@ -318,3 +332,24 @@ void AdultFishSystemWidget::on_pushButton_2_clicked()
     ic->show();
 }
 
+
+template<typename DT>
+void AdultFishSystemWidget::updateVecAndShow(QVector<DT *> &vec, int deviceNum, QLayout *l)
+{
+    int size = vec.size();
+    if (size > deviceNum) {
+        for (int i = size - deviceNum; i > 0; --i) {
+            vec.back()->deleteLater();
+            vec.pop_back();
+        }
+    }
+    for (int i = vec.size(); i < deviceNum; ++i) {
+
+        DT *p = new DT(i,this);
+
+        l->addWidget(p,1);
+
+        vec.push_back(p);
+
+    }
+}

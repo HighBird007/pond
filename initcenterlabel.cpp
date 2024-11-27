@@ -48,6 +48,24 @@ void initCenterLabel::initCombox()
     ui->comboBox->addItem("池塘",DeviceType::fpond);
 }
 
+void initCenterLabel::setComboxValue(int num)
+{
+    int index = ui->comboBox->findData(num);  // findData 会查找与 num 对应的值
+    if (index != -1) {
+        ui->comboBox->setCurrentIndex(index);  // 设置当前选中的项
+    }
+}
+
+void initCenterLabel::setSpinBoxValue(int num)
+{
+    ui->spinBox->setValue(num);
+}
+
+void initCenterLabel::setLineEditValue(QString str)
+{
+    ui->lineEdit->setText(str);
+}
+
 QString initCenterLabel::getJsonName()
 {
     return jname;

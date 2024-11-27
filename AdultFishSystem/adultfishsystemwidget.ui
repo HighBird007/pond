@@ -55,7 +55,7 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="deviceLay1" stretch="0">
-       <item alignment="Qt::AlignLeft">
+       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QLabel" name="label">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -78,7 +78,7 @@
        <property name="sizeConstraint">
         <enum>QLayout::SetFixedSize</enum>
        </property>
-       <item alignment="Qt::AlignLeft">
+       <item alignment="Qt::AlignHCenter|Qt::AlignTop">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>设备2</string>
